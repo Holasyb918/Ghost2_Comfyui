@@ -1,0 +1,794 @@
+{
+  "last_node_id": 28,
+  "last_link_id": 51,
+  "nodes": [
+    {
+      "id": 14,
+      "type": "LoadAlignerModel",
+      "pos": [
+        838.7496948242188,
+        -284.5061340332031
+      ],
+      "size": [
+        264.5999755859375,
+        26
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "links": [
+            8
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadAlignerModel"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 18,
+      "type": "LoadFaceParsingModel",
+      "pos": [
+        821.8067626953125,
+        -163.5009307861328
+      ],
+      "size": [
+        315,
+        26
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "links": [
+            17,
+            34,
+            39,
+            43
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadFaceParsingModel"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 9,
+      "type": "LoadFaceAnalysisModel",
+      "pos": [
+        360.6502685546875,
+        107.24974060058594
+      ],
+      "size": [
+        327.5999755859375,
+        26
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "links": [
+            3,
+            48
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadFaceAnalysisModel"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 26,
+      "type": "LoadImage",
+      "pos": [
+        379.93658447265625,
+        -278.0218200683594
+      ],
+      "size": [
+        315,
+        314.0000305175781
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            49
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "13c626c80b2c7.png",
+        "image",
+        ""
+      ]
+    },
+    {
+      "id": 7,
+      "type": "LoadImage",
+      "pos": [
+        30.688167572021484,
+        -349.062744140625
+      ],
+      "size": [
+        315,
+        314
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            2,
+            50
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "5d05d112a32f68.png",
+        "image",
+        ""
+      ]
+    },
+    {
+      "id": 6,
+      "type": "FaceAnalysisePipeline",
+      "pos": [
+        820.3737182617188,
+        -62.967247009277344
+      ],
+      "size": [
+        327.5999755859375,
+        166
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "source_image",
+          "type": "IMAGE",
+          "link": 50
+        },
+        {
+          "name": "target_image",
+          "type": "IMAGE",
+          "link": 49
+        },
+        {
+          "name": "face_analysis_model",
+          "type": "MODEL",
+          "link": 48
+        },
+        {
+          "name": "face_segment_model",
+          "type": "MODEL",
+          "link": 47
+        }
+      ],
+      "outputs": [
+        {
+          "name": "wide_source",
+          "type": "IMAGE",
+          "links": [
+            9,
+            18
+          ]
+        },
+        {
+          "name": "arc_source",
+          "type": "IMAGE",
+          "links": [
+            10
+          ]
+        },
+        {
+          "name": "mask_source",
+          "type": "IMAGE",
+          "links": [
+            11
+          ]
+        },
+        {
+          "name": "wide_target",
+          "type": "IMAGE",
+          "links": [
+            12,
+            26,
+            45
+          ]
+        },
+        {
+          "name": "arc_target",
+          "type": "IMAGE",
+          "links": [
+            13
+          ]
+        },
+        {
+          "name": "mask_target",
+          "type": "IMAGE",
+          "links": [
+            14
+          ]
+        },
+        {
+          "name": "full_frames",
+          "type": "IMAGE",
+          "links": [
+            35
+          ]
+        },
+        {
+          "name": "array_2x3_output",
+          "type": "TUPLE",
+          "links": [
+            36
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FaceAnalysisePipeline"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 28,
+      "type": "PreviewImage",
+      "pos": [
+        1930.5008544921875,
+        -273.2779846191406
+      ],
+      "size": [
+        210,
+        246
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 51
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": [
+        ""
+      ]
+    },
+    {
+      "id": 22,
+      "type": "LoadBlenderModel",
+      "pos": [
+        858.2116088867188,
+        190.49655151367188
+      ],
+      "size": [
+        263.73065185546875,
+        26
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "links": [
+            38
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadBlenderModel"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 13,
+      "type": "AlignPipeline",
+      "pos": [
+        1371.4285888671875,
+        -121.77033996582031
+      ],
+      "size": [
+        355.20001220703125,
+        146
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "wide_source",
+          "type": "IMAGE",
+          "link": 9
+        },
+        {
+          "name": "arc_source",
+          "type": "IMAGE",
+          "link": 10
+        },
+        {
+          "name": "mask_source",
+          "type": "IMAGE",
+          "link": 11
+        },
+        {
+          "name": "wide_target",
+          "type": "IMAGE",
+          "link": 12
+        },
+        {
+          "name": "arc_target",
+          "type": "IMAGE",
+          "link": 13
+        },
+        {
+          "name": "mask_target",
+          "type": "IMAGE",
+          "link": 14
+        },
+        {
+          "name": "aligner",
+          "type": "MODEL",
+          "link": 8
+        }
+      ],
+      "outputs": [
+        {
+          "name": "fake_rgbs",
+          "type": "IMAGE",
+          "links": [
+            30
+          ]
+        },
+        {
+          "name": "fake_segm",
+          "type": "IMAGE",
+          "links": [
+            31
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "AlignPipeline"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 11,
+      "type": "LoadStyleMatteModel",
+      "pos": [
+        353.4795837402344,
+        221.61013793945312
+      ],
+      "size": [
+        302.4000244140625,
+        26
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "links": [
+            6,
+            40,
+            46,
+            47
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadStyleMatteModel"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 21,
+      "type": "LoadInpainterModel",
+      "pos": [
+        839.2981567382812,
+        285.13641357421875
+      ],
+      "size": [
+        289.79998779296875,
+        26
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "links": [
+            20,
+            37
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadInpainterModel"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 20,
+      "type": "BlenderPipeline",
+      "pos": [
+        1801.822265625,
+        82.28307342529297
+      ],
+      "size": [
+        456,
+        206
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "target_parsing",
+          "type": "IMAGE",
+          "link": 44
+        },
+        {
+          "name": "wide_target",
+          "type": "IMAGE",
+          "link": 26
+        },
+        {
+          "name": "fake_rgbs",
+          "type": "IMAGE",
+          "link": 30
+        },
+        {
+          "name": "fake_segm",
+          "type": "IMAGE",
+          "link": 31
+        },
+        {
+          "name": "full_frames",
+          "type": "IMAGE",
+          "link": 35
+        },
+        {
+          "name": "array_2x3_output",
+          "type": "TUPLE",
+          "link": 36
+        },
+        {
+          "name": "blender_model",
+          "type": "MODEL",
+          "link": 38
+        },
+        {
+          "name": "face_segment_model",
+          "type": "MODEL",
+          "link": 40
+        },
+        {
+          "name": "inpainter_model",
+          "type": "MODEL",
+          "link": 37
+        },
+        {
+          "name": "face_parsing_model",
+          "type": "MODEL",
+          "link": 39
+        }
+      ],
+      "outputs": [
+        {
+          "name": "face_parsing_mask",
+          "type": "IMAGE",
+          "links": [
+            51
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "BlenderPipeline"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 27,
+      "type": "FaceParsingPipeline",
+      "pos": [
+        1298.9339599609375,
+        -347.9511413574219
+      ],
+      "size": [
+        443.4000244140625,
+        46
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "face_parsing_sess",
+          "type": "MODEL",
+          "link": 43
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 45
+        }
+      ],
+      "outputs": [
+        {
+          "name": "face_parsing_mask",
+          "type": "IMAGE",
+          "links": [
+            44
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FaceParsingPipeline"
+      },
+      "widgets_values": []
+    }
+  ],
+  "links": [
+    [
+      8,
+      14,
+      0,
+      13,
+      6,
+      "MODEL"
+    ],
+    [
+      9,
+      6,
+      0,
+      13,
+      0,
+      "IMAGE"
+    ],
+    [
+      10,
+      6,
+      1,
+      13,
+      1,
+      "IMAGE"
+    ],
+    [
+      11,
+      6,
+      2,
+      13,
+      2,
+      "IMAGE"
+    ],
+    [
+      12,
+      6,
+      3,
+      13,
+      3,
+      "IMAGE"
+    ],
+    [
+      13,
+      6,
+      4,
+      13,
+      4,
+      "IMAGE"
+    ],
+    [
+      14,
+      6,
+      5,
+      13,
+      5,
+      "IMAGE"
+    ],
+    [
+      26,
+      6,
+      3,
+      20,
+      1,
+      "IMAGE"
+    ],
+    [
+      30,
+      13,
+      0,
+      20,
+      2,
+      "IMAGE"
+    ],
+    [
+      31,
+      13,
+      1,
+      20,
+      3,
+      "IMAGE"
+    ],
+    [
+      35,
+      6,
+      6,
+      20,
+      4,
+      "IMAGE"
+    ],
+    [
+      36,
+      6,
+      7,
+      20,
+      5,
+      "TUPLE"
+    ],
+    [
+      37,
+      21,
+      0,
+      20,
+      8,
+      "MODEL"
+    ],
+    [
+      38,
+      22,
+      0,
+      20,
+      6,
+      "MODEL"
+    ],
+    [
+      39,
+      18,
+      0,
+      20,
+      9,
+      "MODEL"
+    ],
+    [
+      40,
+      11,
+      0,
+      20,
+      7,
+      "MODEL"
+    ],
+    [
+      43,
+      18,
+      0,
+      27,
+      0,
+      "MODEL"
+    ],
+    [
+      44,
+      27,
+      0,
+      20,
+      0,
+      "IMAGE"
+    ],
+    [
+      45,
+      6,
+      3,
+      27,
+      1,
+      "IMAGE"
+    ],
+    [
+      47,
+      11,
+      0,
+      6,
+      3,
+      "MODEL"
+    ],
+    [
+      48,
+      9,
+      0,
+      6,
+      2,
+      "MODEL"
+    ],
+    [
+      49,
+      26,
+      0,
+      6,
+      1,
+      "IMAGE"
+    ],
+    [
+      50,
+      7,
+      0,
+      6,
+      0,
+      "IMAGE"
+    ],
+    [
+      51,
+      20,
+      0,
+      28,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.6209213230591556,
+      "offset": [
+        -78.07461317855301,
+        529.9970476097301
+      ]
+    }
+  },
+  "version": 0.4
+}
