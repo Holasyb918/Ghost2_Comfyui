@@ -1,0 +1,15 @@
+[project]
+name = "ghost2_comfyui"
+description = "ComfyUI adaptation of [a/GHOST 2.0](https://github.com/ai-forever/ghost-2.0)."
+version = "1.0.0"
+license = {file = "LICENSE"}
+dependencies = ["comfy==0.0.1", "einops==0.8.1", "imgaug==0.4.0", "numpy==2.2.3", "omegaconf==2.3.0", "onnxruntime_gpu==1.16.0", "opencv_contrib_python==4.10.0.84", "opencv_python==4.10.0.84", "opencv_python_headless==4.10.0.84", "packaging==24.2", "Pillow==9.5.0", "Pillow==11.1.0", "simple_lama_inpainting==0.1.2", "skimage==0.0", "torch==2.2.2", "torchvision==0.17.2", "transformers==4.42.3"]
+
+[project.urls]
+Repository = "https://github.com/Holasyb918/Ghost2_Comfyui"
+#  Used by Comfy Registry https://comfyregistry.org
+
+[tool.comfy]
+PublisherId = ""
+DisplayName = "Ghost2_Comfyui"
+Icon = ""
