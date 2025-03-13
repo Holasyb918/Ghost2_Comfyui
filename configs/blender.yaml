@@ -1,0 +1,52 @@
+home_dir: './exps'
+experiment_name: 'test_run'
+num_gpus: 8
+        
+train_options:
+    data_path: '/home/jovyan/yaschenko/dev_masks_parsings/train'
+    weights:
+        w_perc_vgg: 0.01
+        w_rec: 1
+        w_cycle: 1
+        w_adv: 1
+        w_reg: 1
+
+    optim:
+        g_lr: 0.0001
+        d_lr: 0.0004
+        g_clip: 10
+        d_clip: 10
+        beta1: 0.9
+        beta2: 0.999
+    
+    ckpt_interval: 20
+    max_epochs: 1000
+    log_interval: 1000
+    log_train_freq: 100
+    wandb_log_freq: 10
+    save_last: True
+    save_every_n_epochs: 5
+    save_top_k: -1
+
+    jitter_value: 0.2
+    shuffle: True
+    flip_target: False
+    affine_source: False
+    make_noise: True
+    subset_size: null
+    
+    batch_size: 20
+    num_workers: 40
+
+        
+inference_options:
+    data_path: '/home/jovyan/yaschenko/dev_masks_parsings/test'
+
+    shuffle: True
+    flip_target: False
+    affine_source: False
+    make_noise: True
+    subset_size: 100
+    
+    batch_size: 2
+    num_workers: 1

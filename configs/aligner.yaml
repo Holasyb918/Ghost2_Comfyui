@@ -1,0 +1,73 @@
+home_dir: '/home/jovyan/yaschenko/clean_headswap/'
+experiment_name: 'test_run'
+num_gpus: 8
+
+model: 
+    embed:
+        d_por: 512
+        d_id: 512
+        d_pose: 256
+        d_exp: 0
+    discr:
+        padding: 'zero'
+        in_channels: 3
+        out_channels: 3
+        num_channels: 64
+        max_num_channels: 512
+        embed_channels: 512
+        dis_num_blocks: 6
+        image_size: 512
+        num_labels: 1
+    gen:
+        padding: 'zero'
+        in_channels: 3
+        out_channels: 3
+        num_channels: 64
+        max_num_channels: 512
+        norm_layer: 'in'
+        gen_constant_input_size: 4
+        gen_num_residual_blocks: 2
+        output_image_size: 512
+    segment: False
+        
+train_options:
+    data_path: '/home/jovyan/yaschenko/dev_masks_parsings/train'
+    weights:
+        w_rec: 30
+        w_perc_vgg: 0.0001
+        w_perc_id: 0.002
+        w_perc_disc: 10
+        w_id: 0.01
+        w_adv: 0.1
+        w_mask: 1
+        w_gaze: 1
+        w_kpt: 30
+        w_emotion: 1
+
+    optim:
+        g_lr: 0.0001
+        d_lr: 0.0004
+        g_clip: 10
+        d_clip: 10
+        beta1: 0.9
+        beta2: 0.999
+    
+    ckpt_interval: 20
+    max_epochs: 1020
+    gaze_start: 1000
+    log_interval: 250
+    log_train_freq: 200
+    batch_size: 10
+    samples_cnt: None
+    source_len: 1
+    shuffle: True
+    num_workers: 40
+
+        
+inference_options:
+    data_path: '/home/jovyan/yaschenko/dev_masks_parsings/test'
+    batch_size: 20
+    samples_cnt: None
+    source_len: 1
+    shuffle: False
+    num_workers: 40
