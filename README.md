@@ -14,7 +14,6 @@ git clone https://github.com/comfyanonymous/ComfyUI
 cd ComfyUI/custom_nodes
 git clone https://github.com/Holasyb918/Ghost2_Comfyui
 cd Ghost2_Comfyui
-python install.py
 ```  
 
 #### Prepare Weights
